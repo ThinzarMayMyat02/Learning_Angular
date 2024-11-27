@@ -1,16 +1,20 @@
 <p>roles works!</p>
+<!--
 <div class="row">
-  <div class="col-3">
+  <div class="col-5">
     <p>Name : {{name}}</p>
   </div>
-  <div class="col-3">
+  <div class="col-5">
     <p>Version : {{version}}</p>
   </div>
-  <div class="col-3">
+  <div class="col-5">
     <p>Active: {{isActive}}</p>
   </div>
-  <div class="col-3">
+  <div class="col-5">
     <p>Today Date: {{currentDate}}</p>
+  </div>
+  <div class="col-5">
+    <p>{{selectedState}}</p>
   </div>
 
   <div class="row">
@@ -23,8 +27,24 @@
     <div class="col-3">
       <input type="text" [(ngModel)]="name" class="form-control"/>
     </div>
+    <div class="col-3">
+      <select [(ngModel)]="selectedState">
+         <option value="Math">Math</option>
+         <option value="English">English</option>
+         <option value="Physics">Physics</option>
+      </select>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-3">
+      <button class="btn btn-success" (click)="showWelcomeMsg()">Show welcome</button>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-success" (click)="showAlertMessage(name)">Show message</button>
+    </div>
+  </div>
+</div> -->
 
 
 

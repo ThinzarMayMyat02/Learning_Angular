@@ -9,10 +9,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './roles.component.css'
 })
 export class RolesComponent {
-  name : String = "Angular Application";
+  name : string = "Angular Application";
   version : number = 18;
   isActive : boolean = false;
   currentDate : Date = new Date();
 
   inputType: string = "radio";
+
+  selectedState: string = '';
+
+  showWelcomeMsg(){
+    alert('Welcome angular tutorial.')
+  }
+
+  showAlertMessage(message: string){
+    alert(message);
+  }
 }
