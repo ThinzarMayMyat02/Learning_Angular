@@ -1,4 +1,49 @@
 <p>roles works!</p>
+
+@if (isLoading == true) {
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+}@else {
+
+  <div class="row">
+    <div class="col-4">
+      <ul>
+        <li *ngFor="let r of allRoles">{{r.role}}</li>
+      </ul>
+    </div>
+  
+    <div class="col-4">
+      <select>
+          <option *ngFor="let role of allRoles" [value]="role.roleId">{{role.role}}</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-6">
+      <table class="table table-striped">
+        <thead>
+          <th>No</th>
+          <th>Role Position</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let role of allRoles; let no=index">
+            <td>{{no}}</td>
+            <td>{{role.role}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+}
+
+
 <!--
 <div class="row">
   <div class="col-5">
