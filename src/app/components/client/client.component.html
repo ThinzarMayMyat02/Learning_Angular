@@ -1,1 +1,100 @@
-<p>client works!</p>
+<div class="container pt-2">
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    Client List
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Person Name</th>
+                                        <th>Company Name</th>
+                                        <th>Contact No</th>
+                                        <th>City</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (c of clientList; track $index) {
+                                        <tr>
+                                            <td>{{$index+1}}</td>
+                                            <td>{{c.contactPersonName}}</td>
+                                            <td>{{c.companyName}}</td>
+                                            <td>{{c.contactNo}}</td>
+                                            <td>{{c.city}}</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    New Client
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Person Name</label>
+                            <input type="text" [(ngModel)]="client.contactPersonName" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Company Name</label>
+                            <input type="text" [(ngModel)]="client.companyName" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contant Number</label>
+                            <input type="text" [(ngModel)]="client.contactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">City</label>
+                            <input type="text" [(ngModel)]="client.city" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">State</label>
+                            <input type="text" [(ngModel)]="client.state" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Pin Code</label>
+                            <input type="text" [(ngModel)]="client.pincode" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Address</label>
+                            <textarea [(ngModel)]="client.address" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Employee Strength</label>
+                            <input type="text" [(ngModel)]="client.employeeStrength" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Reg Number</label>
+                            <input type="text" [(ngModel)]="client.regNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Gst Number</label>
+                            <input type="text" [(ngModel)]="client.gstNo" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <button class="btn btn-primary">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary">Save Client</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
