@@ -9,7 +9,7 @@ import { ApiResponseModel } from '../model/interface/role';
   providedIn: 'root'
 })
 export class ClientService {
-  
+
   constructor(private http: HttpClient) { }
 
   getAllClients():Observable<ApiResponseModel>{
@@ -21,6 +21,6 @@ export class ClientService {
   }
 
   deleteClientById(id:number):Observable<ApiResponseModel>{
-    return this.http.delete<ApiResponseModel>(environment.API_URL + '/DeleteClientByClientId' + id)
+    return this.http.delete<ApiResponseModel>(environment.API_URL + '/DeleteClientByClientId?clientId=' + id)
   }
 }

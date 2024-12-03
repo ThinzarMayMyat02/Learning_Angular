@@ -16,6 +16,7 @@
                                         <th>Company Name</th>
                                         <th>Contact No</th>
                                         <th>City</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -26,6 +27,10 @@
                                             <td>{{c.companyName}}</td>
                                             <td>{{c.contactNo}}</td>
                                             <td>{{c.city}}</td>
+                                            <td>
+                                              <button class="btn btn-primary" (click)="editClient(c)"> Edit </button>
+                                              <button class="btn btn-danger" (click)="deleteClient(c.clientId)"> Delete </button>
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>
@@ -42,58 +47,68 @@
                     New Client
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <form #form="ngForm">
+                      <div class="row">
                         <div class="col-6">
                             <label for="">Person Name</label>
-                            <input type="text" [(ngModel)]="client.contactPersonName" class="form-control">
+                            <input type="text" #personName="ngModel" name="contactPersonName" required [(ngModel)]="client.contactPersonName" class="form-control" name="contactPersonName">
+                            @if(personName.touched) {
+                              <div class="text-danger">
+                                @if (personName?.errors?.['required']) {
+                                  <span>Person name is required!</span>
+                                }
+                              </div>
+                            }
                         </div>
                         <div class="col-6">
                             <label for="">Company Name</label>
-                            <input type="text" [(ngModel)]="client.companyName" class="form-control">
+                            <input type="text" [(ngModel)]="client.companyName" class="form-control" name="companyName">
                         </div>
                         <div class="col-6">
                             <label for="">Contant Number</label>
-                            <input type="text" [(ngModel)]="client.contactNo" class="form-control">
+                            <input type="text" [(ngModel)]="client.contactNo" class="form-control" name="contactNo">
                         </div>
                         <div class="col-6">
                             <label for="">City</label>
-                            <input type="text" [(ngModel)]="client.city" class="form-control">
+                            <input type="text" [(ngModel)]="client.city" class="form-control" name="city">
                         </div>
                         <div class="col-6">
                             <label for="">State</label>
-                            <input type="text" [(ngModel)]="client.state" class="form-control">
+                            <input type="text" [(ngModel)]="client.state" class="form-control" name="state">
                         </div>
                         <div class="col-6">
                             <label for="">Pin Code</label>
-                            <input type="text" [(ngModel)]="client.pincode" class="form-control">
+                            <input type="text" [(ngModel)]="client.pincode" class="form-control" name="pincode">
                         </div>
                         <div class="col-6">
-                            <label for="">Address</label>
-                            <textarea [(ngModel)]="client.address" class="form-control"></textarea>
+                            <label for="">Address</label>s
+                            <textarea [(ngModel)]="client.address" class="form-control" name="address"></textarea>
                         </div>
                         <div class="col-6">
                             <label for="">Employee Strength</label>
-                            <input type="text" [(ngModel)]="client.employeeStrength" class="form-control">
+                            <input type="text" [(ngModel)]="client.employeeStrength" class="form-control" name="employeeStrength" >
                         </div>
                         <div class="col-6">
                             <label for="">Reg Number</label>
-                            <input type="text" [(ngModel)]="client.regNo" class="form-control">
+                            <input type="text" [(ngModel)]="client.regNo" class="form-control" name="regNo">
                         </div>
                         <div class="col-6">
                             <label for="">Gst Number</label>
-                            <input type="text" [(ngModel)]="client.gstNo" class="form-control">
+                            <input type="text" [(ngModel)]="client.gstNo" class="form-control" name="gstNo">
                         </div>
                     </div>
 
-                    <div class="row pt-3">
-                        <div class="col-6">
-                            <button class="btn btn-primary">Reset</button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-primary">Save Client</button>
-                        </div>
-                    </div>
-                </div>
+                      <div class="row pt-3">
+                          <div class="col-6">
+                              <button class="btn btn-primary">Reset</button>
+                          </div>
+                          <div class="col-6">
+                              <button class="btn btn-primary" [disabled]="form.invalid" (click)="updateClient()">
+                                {{client.clientId != 0? 'Update Client':'Save Client'}}</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
             </div>
         </div>
     </div>

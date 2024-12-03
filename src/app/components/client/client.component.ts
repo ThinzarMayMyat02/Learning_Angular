@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './client.component.css'
 })
 export class ClientComponent implements OnInit{
-  
+
   client: Client = new Client();
   clientList: Client[] = [];
 
@@ -37,13 +37,29 @@ export class ClientComponent implements OnInit{
     if (resp.result ) {
       alert("Client is successfully created.");
       this.getAllClient();
+      this.client = new Client();
     }else{
       alert(resp.message);
     }
   })
  }
 
- deleteClient(){
+ editClient(client:Client){
+    this.client = client;
+ }
+
+ deleteClient(id:number){
+  var isDelete = confirm("Are you sure to delete Client");
+  if (isDelete) {
+    this.clientService.deleteClientById(id).subscribe((resp:ApiResponseModel)=>{
+      if (resp.result) {
+        alert("Client deleted successfully."+resp.result);
+        this.getAllClient();
+      }else{
+        alert(resp.message);
+      }
+    })
+  }
 
  }
 }
