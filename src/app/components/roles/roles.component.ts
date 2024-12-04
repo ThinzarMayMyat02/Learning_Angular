@@ -9,8 +9,7 @@ import { Observable } from 'rxjs';
   selector: 'app-roles',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './roles.component.html',
-  styleUrl: './roles.component.css'
+  templateUrl: './roles.component.html'
 })
 export class RolesComponent implements OnInit{
   isLoading: boolean = true;

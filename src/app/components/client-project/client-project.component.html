@@ -1,0 +1,123 @@
+<div class="container pt-2">
+  <div class="row">
+      <div class="col-8">
+          <div class="card">
+              <div class="card-header">
+                  Client List
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-12">
+                          <table class="table table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>No</th>
+                                      <th>Person Name</th>
+                                      <th>Company Name</th>
+                                      <th>Contact No</th>
+                                      <th>City</th>
+                                      <th>Action</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                        <!--        @for (c of clientProjectList; track $index) {
+                                      <tr>
+                                          <td>{{$index+1}}</td>
+                                          <td>{{c.contactPersonName}}</td>
+                                          <td>{{c.companyName}}</td>
+                                          <td>{{c.contactNo}}</td>
+                                          <td>{{c.city}}</td>
+                                          <td>
+                                            <button class="btn btn-primary" > Edit </button>
+                                            <button class="btn btn-danger" > Delete </button>
+                                          </td>
+                                      </tr>
+                                  }-->
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-4">
+          <div class="card">
+              <div class="card-header">
+                  New Client
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="ProjectsForm">
+                    <div class="row">
+                      <div class="col-6">
+                          <label for="">Project Name</label>
+                          <input type="text" formControlName="projectName" class="form-control" name="projectname">
+                      </div>
+                      <div class="col-6">
+                        <label for="">Contact Name</label>
+                        <input type="text" formControlName="contactPerson" class="form-control" name="contactPerson">
+                    </div>
+                      <div class="col-6">
+                          <label for="">Start Date</label>
+                          <input type="text" formControlName="startDate" class="form-control" name="startDate">
+                      </div>
+                      <div class="col-6">
+                          <label for="">Expected End Date</label>
+                          <input type="date" formControlName="expectedEndDate" class="form-control" name="expectedEndDate">
+                      </div>
+
+                      <div class="col-6">
+                          <label for="">Contact Mobile</label>
+                          <input type="text" formControlName="contactPersonContactNo" class="form-control" name="contactPersonContactNo">
+                      </div>
+                      <div class="col-6">
+                          <label for="">Contact Email</label>
+                          <input type="text" formControlName  ="contactPersonEmailId" class="form-control" name="contactPersonEmailId">
+                      </div>
+                      <div class="col-6">
+                          <label for="">Total Employee Count</label>s
+                          <input type="number" min="01" formControlName="totalEmpWorking" class="form-control" name="totalEmpWorking">
+                      </div>
+                      <div class="col-6">
+                          <label for="">Project Costing</label>
+                          <input type="text" formControlName="projectCost" class="form-control" name="projectCost" >
+                      </div>
+                      <div class="col-6">
+                          <label for="">Lead By</label>
+                          <select name="leadByEmpId" formControlName="leadByEmpId" class="form-control">
+                            <option value="">Select Employee</option>
+                            @for (emp of employeeList; track $index) {
+                              <option [value]="emp.empId">{{emp.empName}} - {{emp.empCode}}</option>
+                            }
+                          </select>
+                      </div>
+                      <div class="col-6">
+                          <label for="">Project Client</label>
+                          <select name="clientId" formControlName="clientId" class="form-control">
+                            <option value="">Select Client</option>
+                            @for (cli of clientList; track $index) {
+                              <option [value]="cli.clientId">{{cli.contactPersonName}}</option>
+                            }
+                          </select>
+                      </div>
+                      <div class="col-12">
+                        <label for="">Project Description</label>
+                        <textarea name="projectDetails" formControlName="projectDetails" class="form-control"></textarea>
+                    </div>
+                  </div>
+
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <button class="btn btn-primary">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary" >
+                              Save Client Project</button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+          </div>
+      </div>
+  </div>
+</div>
