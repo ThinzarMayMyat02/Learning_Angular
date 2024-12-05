@@ -47,7 +47,7 @@
                   New Client
               </div>
               <div class="card-body">
-                  <form [formGroup]="ProjectsForm">
+                  <form [formGroup]="ClientProjectsForm">
                     <div class="row">
                       <div class="col-6">
                           <label for="">Project Name</label>
@@ -111,7 +111,7 @@
                             <button class="btn btn-primary">Reset</button>
                         </div>
                         <div class="col-6">
-                            <button class="btn btn-primary" >
+                            <button class="btn btn-primary" (click)="saveClientProject()">
                               Save Client Project</button>
                         </div>
                     </div>

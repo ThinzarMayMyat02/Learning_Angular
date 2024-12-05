@@ -4,6 +4,7 @@ import { Client } from '../model/class/Client';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { ApiResponseModel } from '../model/interface/role';
+import { ClientProject } from '../model/class/ClientProject';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,8 @@ export class ClientService {
   getAllEmployee():Observable<ApiResponseModel>{
     return this.http.get<ApiResponseModel>(environment.API_URL + '/GetAllEmployee');
   }
+
+ updateClientProject(clientProject: ClientProject):Observable<ApiResponseModel>{
+  return this.http.post<ApiResponseModel>(environment.API_URL+'/AddUpdateClientProject',clientProject)
+ }
 }
