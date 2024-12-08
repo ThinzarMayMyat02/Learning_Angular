@@ -22,7 +22,7 @@ export class ClientService {
   }
 
   deleteClientById(id:number):Observable<ApiResponseModel>{
-    return this.http.delete<ApiResponseModel>(environment.API_URL + '/DeleteClientByClientId?clientId=' + id)
+    return this.http.delete<ApiResponseModel>(environment.API_URL + '/DeleteClientByClientId?clientId=' + id);
   }
 
   getAllEmployee():Observable<ApiResponseModel>{
@@ -30,6 +30,10 @@ export class ClientService {
   }
 
  updateClientProject(clientProject: ClientProject):Observable<ApiResponseModel>{
-  return this.http.post<ApiResponseModel>(environment.API_URL+'/AddUpdateClientProject',clientProject)
+  return this.http.post<ApiResponseModel>(environment.API_URL+'/AddUpdateClientProject',clientProject);
+ }
+
+ getAllUser(){
+  return this.http.get("https://jsonplaceholder.typicode.com/users");
  }
 }

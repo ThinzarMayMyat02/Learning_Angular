@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ClientService } from '../../services/client.service';
 import { ApiResponseModel } from '../../model/interface/role';
-import { CommonModule } from '@angular/common';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule, UpperCasePipe],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -17,6 +17,8 @@ export class ClientComponent implements OnInit{
 
   client: Client = new Client();
   clientList: Client[] = [];
+
+  currentDate = new Date();
 
   clientService = inject(ClientService);
 

@@ -3,7 +3,7 @@
         <div class="col-8">
             <div class="card">
                 <div class="card-header">
-                    Client List
+                    Client List ( {{currentDate | date:'dd-MMM-yyyy'}} )  //using date pipe
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -23,7 +23,7 @@
                                     @for (c of clientList; track $index) {
                                         <tr>
                                             <td>{{$index+1}}</td>
-                                            <td>{{c.contactPersonName}}</td>
+                                            <td>{{c.contactPersonName | uppercase}}</td>
                                             <td>{{c.companyName}}</td>
                                             <td>{{c.contactNo}}</td>
                                             <td>{{c.city}}</td>

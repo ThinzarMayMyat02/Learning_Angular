@@ -36,6 +36,18 @@
                               </tbody>
                           </table>
                       </div>
+                      <!--using async pipe-->
+                      <div class="col-row">
+                          <div class="col-4">
+                            <ul>
+                              @for (item of userList$ | async; track $index) {
+                                <li>{{item.username}}</li>
+                              }
+                            </ul>
+
+                          </div>
+                      </div>
+
                   </div>
               </div>
           </div>
@@ -52,6 +64,15 @@
                       <div class="col-6">
                           <label for="">Project Name</label>
                           <input type="text" formControlName="projectName" class="form-control" name="projectname">
+                          <div class="text-danger">
+                            @if(ClientProjectsForm.controls['projectName'].errors?.['required']){
+                              <span>Project Name required.</span>
+                            }
+                            @if (ClientProjectsForm.controls['projectName'].errors?.['minlength']) {
+                              <span>Project Name length is more than 5 char.</span>
+                            }
+
+                          </div>
                       </div>
                       <div class="col-6">
                         <label for="">Contact Name</label>
@@ -59,7 +80,7 @@
                     </div>
                       <div class="col-6">
                           <label for="">Start Date</label>
-                          <input type="text" formControlName="startDate" class="form-control" name="startDate">
+                          <input type="date" formControlName="startDate" class="form-control" name="startDate">
                       </div>
                       <div class="col-6">
                           <label for="">Expected End Date</label>
