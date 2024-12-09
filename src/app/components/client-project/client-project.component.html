@@ -12,27 +12,27 @@
                               <thead>
                                   <tr>
                                       <th>No</th>
-                                      <th>Person Name</th>
-                                      <th>Company Name</th>
-                                      <th>Contact No</th>
-                                      <th>City</th>
+                                      <th>Client Name</th>
+                                      <th>Project Name</th>
+                                      <th>Employee Name</th>
+                                      <th>Start Date</th>
                                       <th>Action</th>
                                   </tr>
                               </thead>
                               <tbody>
-                        <!--        @for (c of clientProjectList; track $index) {
+                             @for (cp of clientProject(); track $index) {
                                       <tr>
                                           <td>{{$index+1}}</td>
-                                          <td>{{c.contactPersonName}}</td>
-                                          <td>{{c.companyName}}</td>
-                                          <td>{{c.contactNo}}</td>
-                                          <td>{{c.city}}</td>
+                                          <td>{{cp.clientName}}</td>
+                                          <td>{{cp.projectName}}</td>
+                                          <td>{{cp.empName}}</td>
+                                          <td>{{cp.startDate | date :'dd-MMM-yyyy'}}</td>
                                           <td>
                                             <button class="btn btn-primary" > Edit </button>
                                             <button class="btn btn-danger" > Delete </button>
                                           </td>
                                       </tr>
-                                  }-->
+                                  }
                               </tbody>
                           </table>
                       </div>

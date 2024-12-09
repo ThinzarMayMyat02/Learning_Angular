@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { ApiResponseModel } from '../model/interface/role';
 import { ClientProject } from '../model/class/ClientProject';
+import { Constant } from '../constant/Constant';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class ClientService {
 
  getAllUser(){
   return this.http.get("https://jsonplaceholder.typicode.com/users");
+ }
+
+ getAllClientProject():Observable<ApiResponseModel>{
+  return this.http.get<ApiResponseModel>(environment.API_URL+"/"+Constant.API_METHOD.GET_ALL_CLIENTPROJECT);
  }
 }

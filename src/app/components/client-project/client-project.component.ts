@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { Client } from '../../model/class/Client';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
-import { ApiResponseModel, Employee } from '../../model/interface/role';
+import { ApiResponseModel, ClientProject, Employee } from '../../model/interface/role';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule,AsyncPipe],
+  imports: [ReactiveFormsModule,AsyncPipe, DatePipe],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,12 +21,13 @@ export class ClientProjectComponent implements OnInit {
   clientList : Client[] = [];
 
   userList$ : Observable<any> = new Observable<any>;
+//declare signal
+  clientProject  = signal<ClientProject[]>([]);
 
   ngOnInit(): void {
-    console.log("before getAllClient");
     this.getAllClient();
-    console.log("after getAllClient");
     this.getAllEmployee();
+    this.getAllClientProject();
 
     //for using async pipe
     this.userList$ = this.clientService.getAllUser();
@@ -35,7 +36,7 @@ export class ClientProjectComponent implements OnInit {
 
   ClientProjectsForm: FormGroup = new FormGroup({
     clientProjectId: new FormControl(0),
-    projectName: new FormControl("",[Validators.required,Validators.minLength(5)]),
+    projectName: new FormControl("",[Validators.required,Validators.minLength(5)]), //Form Validation
     startDate : new FormControl(""),
     expectedEndDate : new FormControl(""),
     leadByEmpId : new FormControl(""),
@@ -76,6 +77,14 @@ saveClientProject(){
       console.log(resp.message);
     }
   });
+}
+
+getAllClientProject(){
+  this.clientService.getAllClientProject().subscribe((resp:ApiResponseModel)=>{
+    if(resp.result){
+      this.clientProject.set(resp.data);
+    }
+  })
 }
 
 }
