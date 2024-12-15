@@ -1,9 +1,10 @@
 <div class="container pt-2">
+  <app-alert [alertType]="'Error'"  [message]="'It is from Client.'"></app-alert> <!-- from reusable component -->
     <div class="row">
         <div class="col-8">
             <div class="card">
                 <div class="card-header">
-                    Client List ( {{currentDate | date:'dd-MMM-yyyy'}} )  //using date pipe
+                    Client List ( {{currentDate | date:'dd-MMM-yyyy'}} )  <!--  using date pipe -->
                 </div>
                 <div class="card-body">
                     <div class="row">

@@ -5,11 +5,12 @@ import { ClientService } from '../../services/client.service';
 import { ApiResponseModel, ClientProject, Employee } from '../../model/interface/role';
 import { Observable } from 'rxjs';
 import { AsyncPipe, DatePipe } from '@angular/common';
+import { AlertComponentComponent } from "../../reusable-component/alert-component/alert-component.component";
 
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule,AsyncPipe, DatePipe],
+  imports: [ReactiveFormsModule, AsyncPipe, DatePipe, AlertComponentComponent],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

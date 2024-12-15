@@ -5,11 +5,12 @@ import { Observable } from 'rxjs';
 import { ClientService } from '../../services/client.service';
 import { ApiResponseModel } from '../../model/interface/role';
 import { CommonModule, UpperCasePipe } from '@angular/common';
+import { AlertComponentComponent } from "../../reusable-component/alert-component/alert-component.component";
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule,CommonModule, UpperCasePipe],
+  imports: [FormsModule, CommonModule, UpperCasePipe, AlertComponentComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
