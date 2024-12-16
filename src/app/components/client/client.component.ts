@@ -6,11 +6,12 @@ import { ClientService } from '../../services/client.service';
 import { ApiResponseModel } from '../../model/interface/role';
 import { CommonModule, UpperCasePipe } from '@angular/common';
 import { AlertComponentComponent } from "../../reusable-component/alert-component/alert-component.component";
+import { ButtonComponent } from "../../reusable-component/button/button.component";
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule, CommonModule, UpperCasePipe, AlertComponentComponent],
+  imports: [FormsModule, CommonModule, UpperCasePipe, AlertComponentComponent, ButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
@@ -34,7 +35,7 @@ export class ClientComponent implements OnInit{
     });
  }
 
- updateClient(){
+ updateClient(data:string){
   debugger;
   this.clientService.updateClient(this.client).subscribe((resp:ApiResponseModel)=>{
     if (resp.result ) {

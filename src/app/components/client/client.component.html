@@ -104,8 +104,11 @@
                               <button class="btn btn-primary">Reset</button>
                           </div>
                           <div class="col-6">
-                              <button class="btn btn-primary" [disabled]="form.invalid" (click)="updateClient()">
-                                {{client.clientId != 0? 'Update Client':'Save Client'}}</button>
+                            <app-button (onBtnClicked)="updateClient($event)"  [btnClass]="'btn btn-primary'"
+                                  [btnName]="client.clientId != 0? 'Update Client':'Save Client'"></app-button>
+
+                            <!-- <button class="btn btn-primary" [disabled]="form.invalid" (click)="updateClient()">
+                                {{client.clientId != 0? 'Update Client':'Save Client'}}</button> -->
                           </div>
                       </div>
                     </form>
